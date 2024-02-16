@@ -5,10 +5,15 @@ import { Loader } from '../components'
 
 import Island from '../models/Island'
 import Sky from '../models/Sky';
+import Laboon from '../models/Laboon';
+import Boat from '../models/Boat';
 
 
 
 const Home = () => {
+  const 
+
+
   const adjustIslandForScreenSize = () =>{
     let screenScale = null;
     let screenPosition =[0, -6.5 , -170]
@@ -46,6 +51,8 @@ const Home = () => {
             groundColor='#000000'
             intensity={1}
           />
+          <Laboon/>
+          <Boat/>
           <Sky/>
           <Island
             position={islandPosition}
