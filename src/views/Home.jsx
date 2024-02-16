@@ -4,20 +4,21 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { Loader } from '../components'
 
 import Island from '../models/Island'
+import Sky from '../models/Sky';
 
 
 
 const Home = () => {
   const adjustIslandForScreenSize = () =>{
     let screenScale = null;
-    let screenPosition =[0, -6.5 , -150]
-    let rotation = [5 , 0 , 0]
+    let screenPosition =[0, -6.5 , -170]
+    let rotation = [4.8 , 0 , 1.4]
 
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9 , 0.9]
 
     } else{
-      screenScale = [1, 1 , 1]
+      screenScale = [1.2, 1 , 1.2]
 
     }
     return [screenScale, screenPosition, rotation]
@@ -32,7 +33,7 @@ const Home = () => {
       camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={"loading"}>
-        <directionalLight position={[4, 1, 1]} intensity={2} />
+        <directionalLight position={[4, -12, 1]} intensity={4} />
           <ambientLight intensity={0.6} />
           <spotLight
             position={[0, 50, 10]}
@@ -45,7 +46,7 @@ const Home = () => {
             groundColor='#000000'
             intensity={1}
           />
-
+          <Sky/>
           <Island
             position={islandPosition}
             scale={islandScale}
