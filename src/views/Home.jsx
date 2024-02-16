@@ -1,5 +1,5 @@
 import React from 'react'
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from '@react-three/fiber';
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Loader } from '../components'
 
@@ -11,31 +11,49 @@ import Boat from '../models/Boat';
 
 
 const Home = () => {
-  const 
+  const [isRotating, setIsRotating] = useState(false)
 
 
   const adjustIslandForScreenSize = () =>{
     let screenScale = null;
     let screenPosition =[0, -6.5 , -170]
-    let rotation = [4.8 , 0 , 1.4]
+    let rotation = [4.75 , 0 , 1.4]
 
     if (window.innerWidth < 768) {
       screenScale = [0.9, 0.9 , 0.9]
 
     } else{
-      screenScale = [1.2, 1 , 1.2]
+      screenScale = [1.2, 1.2 , 1.2]
 
     }
     return [screenScale, screenPosition, rotation]
   }
+  const adjustBoatForScreenSize = () =>{
+    let screenScale , screenPosition 
+
+    if (window.innerWidth < 768) {
+      screenScale = [1.5, 1.5 , 1.5]
+      screenPosition =[5, 5, 5]
+
+    } else{
+      screenScale = [5, 5 , 3]
+      screenPosition =[1, -18 , -23]
+    }
+    return [screenScale, screenPosition]
+  }
 
   const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize()
 
+  const [boatScale,boatPosition] = adjustBoatForScreenSize()
+
+
   return (
     <section className='w-full h-screen relative'>
-      <Canvas 
-      className='w-full h-screen bg-transparent'
-      camera={{ near: 0.1, far: 1000 }}
+      <Canvas
+        className={`w-full h-screen bg-transparent ${
+          isRotating ? "cursor-grabbing" : "cursor-grab"
+        }`}
+        camera={{ near: 0.1, far: 1000 }}
       >
         <Suspense fallback={"loading"}>
         <directionalLight position={[4, -12, 1]} intensity={4} />
@@ -52,12 +70,19 @@ const Home = () => {
             intensity={1}
           />
           <Laboon/>
-          <Boat/>
+          <Boat
+            isRotating={isRotating}
+            boatScale={boatScale}
+            boatPosition={boatPosition}
+            rotation={[0.1, 3.3, 0]}
+          />
           <Sky/>
           <Island
             position={islandPosition}
             scale={islandScale}
             rotation={islandRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
 
         </Suspense>

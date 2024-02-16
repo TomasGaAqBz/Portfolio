@@ -1,15 +1,20 @@
-import React from 'react'
+import React from "react";
 
-import boatScene from '../assets/3d/boat.glb'
-import { useGLTF } from '@react-three/drei'
+import boatScene from "../assets/3d/boat.glb";
+import { useGLTF } from "@react-three/drei";
 
-const Boat = () => {
-    const {scene , animations } = useGLTF(boatScene)
+const Boat = ({ isRotating, boatScale, boatPosition, rotation, ...props }) => {
+  const { scene, animations } = useGLTF(boatScene);
   return (
-    <mesh>
-      <primitive object={scene}/>
+    <mesh
+      scale={boatScale}
+      position={boatPosition}
+      rotation={rotation}
+      {...props}
+    >
+      <primitive object={scene} />
     </mesh>
-  )
-}
+  );
+};
 
-export default Boat
+export default Boat;
