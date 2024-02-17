@@ -12,6 +12,8 @@ import Boat from '../models/Boat';
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false)
+  
+  const [currentStage, setCurrentStage] =useState(0)
 
 
   const adjustIslandForScreenSize = () =>{
@@ -36,8 +38,8 @@ const Home = () => {
       screenPosition =[5, 5, 5]
 
     } else{
-      screenScale = [5, 5 , 3]
-      screenPosition =[1, -18 , -23]
+      screenScale = [3, 3 , 3]
+      screenPosition =[1, -11 , -24]
     }
     return [screenScale, screenPosition]
   }
@@ -74,7 +76,7 @@ const Home = () => {
             isRotating={isRotating}
             boatScale={boatScale}
             boatPosition={boatPosition}
-            rotation={[0.1, 3.3, 0]}
+            rotation={[0.1, 4.7, 0]}
           />
           <Sky/>
           <Island
@@ -83,6 +85,7 @@ const Home = () => {
             rotation={islandRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
           />
 
         </Suspense>
