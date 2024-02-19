@@ -7,6 +7,7 @@ import Island from '../models/Island'
 import Sky from '../models/Sky';
 import Laboon from '../models/Laboon';
 import Boat from '../models/Boat';
+import HomeInfo from '../components/HomeInfo';
 
 
 
@@ -35,7 +36,7 @@ const Home = () => {
 
     if (window.innerWidth < 768) {
       screenScale = [1.5, 1.5 , 1.5]
-      screenPosition =[5, 5, 5]
+      screenPosition =[5, 5, 6]
 
     } else{
       screenScale = [2.5, 2.5 , 2.5]
@@ -51,6 +52,9 @@ const Home = () => {
 
   return (
     <section className='w-full h-screen relative'>
+      <div className='absolute top-28 left-0 right-0 z-10 flex items-center justify-center' >
+        {currentStage && <HomeInfo currentStage={currentStage}/>}
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${
           isRotating ? "cursor-grabbing" : "cursor-grab"
@@ -71,7 +75,6 @@ const Home = () => {
             groundColor='#000000'
             intensity={1}
           />
-          <Laboon/>
           <Boat
             isRotating={isRotating}
             boatScale={boatScale}
