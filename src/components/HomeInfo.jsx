@@ -14,7 +14,7 @@ const InfoBox = ({text,link,btnText}) =>(
 
 const renderContent ={
     1: (
-        <h1 className=' sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5 w-1/2 ' >
+        <h1 className=' sm:text-xl sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5 w-1/2' >
             ¡Bienvenido a mi isla 3D! Soy <span className=' font-semibold'>Tomas,</span> un apasionado FullStack Developer. Sube a bordo y descubre el fascinante mundo de mis proyectos.
         </h1>
     ),
@@ -35,7 +35,7 @@ const renderContent ={
     4: (
         <InfoBox 
             text="¿Quieres contactarte conmigo?¡Hagamos algo increíble juntos! Ponte en contacto conmigo para discutir tus ideas."
-            link="/about"
+            link="/contact"
             btnText="Contactame!"
         />
     ),

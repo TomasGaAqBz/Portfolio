@@ -16,6 +16,9 @@ export default {
         },
         blue: {
           500: "#2b77e7"
+        },
+        orange:{
+          500: "#F97316"
         }
       },
       fontFamily: {
