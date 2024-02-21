@@ -20,7 +20,10 @@ const Viking = ({currentAnimation, ...props}) => {
   const { actions } = useAnimations(animations, group);
 
   useEffect( () => {
-
+    Object.values(actions).forEach((action) => action.stop())
+    if(actions[currentAnimation]){
+        actions[currentAnimation].play()
+    }
   }, [actions,currentAnimation])
   return (
     <group ref={group} {...props} dispose={null}>

@@ -9,18 +9,21 @@ const Contact = () => {
   const formRef = useRef(null)
   const[form,setForm]= useState({name:"",email:"",message:""})
   const[isLoading,setIsloding] = useState(false)
+  const [currentAnimation, setcurrentAnimation] = useState('idle')
   const handleChange = (e) =>{
     setForm({...form, [e.target.name] : e.target.value})
   }
-  const handleFocus = (e) =>{
+  const handleFocus = () =>{
+    setcurrentAnimation('run')
   }
   const handleBlur = () =>{
-
+    setcurrentAnimation('idle')
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
 
     e.preventDefault()
     setIsloding(true)
+    setcurrentAnimation('run')
 
     emailjs.send(
       import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
@@ -39,8 +42,13 @@ const Contact = () => {
       setIsloding(false)
       // Show Succes Message
       //hide an Alert
+      setTimeout( () =>{
+        setcurrentAnimation('ilde')
+        setForm({name:"",email:"",message:""})
+      },3000)
     }).catch((error) =>{
       setIsloding(false)
+      setcurrentAnimation('idle')
       console.log(error)
       //show error mesagge
     })
@@ -52,7 +60,7 @@ const Contact = () => {
   return (
     <section className=' relative flex lg:flex-row flex-col max-container'>
       <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='head-text'>Pongamonos en contacto</h1>
+        <h1 className='text-4xl font-bold'>Pongamonos en contacto</h1>
         
         <form
         className=' w-full flex flex-col gap-7 mt-14'
@@ -125,10 +133,12 @@ const Contact = () => {
           }}
         >
         <directionalLight intensity={2.5} position={[0,0.2,1]} />
+        <ambientLight intensity={0.5} />
           <Suspense fallback={null} >
             <Viking
-              position={[0.5,0.5,0.5]}
+              position={[1,0.5,0.5]}
               rotation={[0.2,6,0]}
+              currentAnimation={currentAnimation}
             />
           </Suspense>
         </Canvas>
