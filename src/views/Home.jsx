@@ -14,12 +14,12 @@ import HomeInfo from '../components/HomeInfo';
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false)
 
-  const [currentStage, setCurrentStage] =useState(0)
+  const [currentStage, setCurrentStage] =useState(1)
 
 
   const adjustIslandForScreenSize = () =>{
     let screenScale = null;
-    let screenPosition =[0, -6.5 , -170]
+    let screenPosition =[0, -3.5 , -170]
     let rotation = [4.75 , 0 , 1.4]
 
     if (window.innerWidth < 768) {
