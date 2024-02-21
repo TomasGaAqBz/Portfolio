@@ -6,14 +6,22 @@ Source: https://sketchfab.com/3d-models/viking-d69782bead884a1aa54a41cf134b54d1
 Title: Viking
 */
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
-import scene from '../assets/3d/fox.glb'
 
-export function Model(props) {
+import scene from '../assets/3d/viking.glb'
+
+
+//Model : https://sketchfab.com/3d-models/viking-d69782bead884a1aa54a41cf134b54d1#download
+const Viking = ({currentAnimation, ...props}) => {
+
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF("/viking.glb");
+  const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
+
+  useEffect( () => {
+
+  }, [actions,currentAnimation])
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
@@ -117,4 +125,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload("/viking.glb");
+export default Viking

@@ -1,5 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, { Suspense, useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber';
 import emailjs from '@emailjs/browser'
+
+import Viking from '../models/Viking'
+
 
 const Contact = () => {
   const formRef = useRef(null)
@@ -110,6 +114,25 @@ const Contact = () => {
             </button>
 
         </form>
+      </div>
+      <div className=' lg:w-1/2 w-full lg:h-auto md:h-[550px] h-[350px]'>
+        <Canvas
+            camera={{
+            position: [0, 0, 5],
+            fov: 75,
+            near: 0.1,
+            far: 1000,
+          }}
+        >
+        <directionalLight intensity={2.5} position={[0,0.2,1]} />
+          <Suspense fallback={null} >
+            <Viking
+              position={[0.5,0.5,0.5]}
+              rotation={[0.2,6,0]}
+            />
+          </Suspense>
+        </Canvas>
+
       </div>
       
     </section>
