@@ -5,7 +5,7 @@ const useAlert = () => {
 
     const showAlert = ({tex,type ='danger'}) => setAlert({show:true,text,type})
     const hideAlert = () => setAlert({
-        show: true,
+        show: false,
         text: "",
         type: 'danger'
     })

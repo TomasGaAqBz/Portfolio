@@ -3,13 +3,19 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import emailjs from '@emailjs/browser'
 
 import Viking from '../models/Viking'
+import useAlert from '../Hooks/useAlert';
+import Alert from '../components/Alert';
 
 
 const Contact = () => {
   const formRef = useRef(null)
-  const[form,setForm]= useState({name:"",email:"",message:""})
-  const[isLoading,setIsloding] = useState(false)
+  const [form,setForm]= useState({name:"",email:"",message:""})
+  const [isLoading,setIsloding] = useState(false)
   const [currentAnimation, setcurrentAnimation] = useState('idle')
+
+  const {alert,showAlert,hideAlert} = useAlert();
+
+
   const handleChange = (e) =>{
     setForm({...form, [e.target.name] : e.target.value})
   }
@@ -40,9 +46,9 @@ const Contact = () => {
     )
     .then(() =>{
       setIsloding(false)
-      // Show Succes Message
-      //hide an Alert
+      showAlert({show: true , text:'Mensaje Enviado Correctamente!.', type:'success'})
       setTimeout( () =>{
+        hideAlert()
         setcurrentAnimation('ilde')
         setForm({name:"",email:"",message:""})
       },3000)
@@ -50,7 +56,7 @@ const Contact = () => {
       setIsloding(false)
       setcurrentAnimation('idle')
       console.log(error)
-      //show error mesagge
+      showAlert({show: true , text:'Error al enviar el mensaje. Por favor intenta mas tarde!.', type:'danger'})
     })
 
 
@@ -59,6 +65,8 @@ const Contact = () => {
 
   return (
     <section className=' relative flex lg:flex-row flex-col max-container'>
+      {alert.show && <Alert{...alert}/> }
+
       <div className='flex-1 min-w-[50%] flex flex-col'>
         <h1 className='text-4xl font-bold'>Pongamonos en contacto</h1>
         
