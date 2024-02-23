@@ -1,7 +1,10 @@
 import React from "react";
-import { skills,experiences } from "../constants";
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
+import { skills, experiences } from "../constants";
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
 
 const About = () => {
   return (
@@ -14,79 +17,88 @@ const About = () => {
       </h1>
       <div className=" mt-5 flex flex-col gap-3 text-slate-500">
         <p>
-          Soy un Full Stack Developer con una sólida formación como Diseñador Web. Mi
-          enfoque equilibrado entre el diseño y el desarrollo me permite crear
-          experiencias digitales cautivadoras y funcionales
+          Soy un Full Stack Developer con una sólida formación como Diseñador
+          Web. Mi enfoque equilibrado entre el diseño y el desarrollo me permite
+          crear experiencias digitales cautivadoras y funcionales
         </p>
       </div>
       <div className="py-10 flex flex-col">
-        <h3 className="subhead-text" >Mis Habilidades</h3>
+        <h3 className="subhead-text">Mis Habilidades</h3>
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill) => (
             <div className=" block-container w-20 h-20">
-              <div className=" btn-back rounded-xl"/>
+              <div className=" btn-back rounded-xl" />
               <div className=" btn-front rounded-xl flex justify-center items-center">
-                <img 
-                  src={skill.imageUrl} 
+                <img
+                  src={skill.imageUrl}
                   alt={skill.name}
                   className="w-1/2 h-1/2 object-contain"
-                  />
+                />
               </div>
             </div>
-            )
-          )}
+          ))}
         </div>
       </div>
-          {/* Experience Section */}
+      {/* Experience Section */}
       <div>
         <h3 className=" subhead-text">Experiencias</h3>
         <div className=" mt-5 flex flex-col gap-3 text-slate-500">
-        <p>
-        A través de mi trayectoria, he aprendido a abrazar la diversidad de proyectos y a disfrutar del proceso de aprendizaje constante que implica la programación. A continuación, te invito a explorar mi línea de tiempo, donde detallo las etapas clave de mi carrera hasta el momento.
-        </p>
-      </div>
-      <div className=" mt-12 flex">
-        <VerticalTimeline>
-          {experiences.map((experience) =>(
-            <VerticalTimelineElement 
-            key={experience.company_name} 
-            date={experience.date} 
-            icon={<div className=" flex justify-center items-center w-full h-full">
-              <img 
-              src={experience.icon} 
-              alt={experience.company_name}
-              className=" w-[60%] h-[60%] object-contain"/>
-            </div>}
-            iconStyle={{background: experience.iconBg}}
-            contentStyle={{
-              borderBottom:'8px',
-              borderStyle:'solid',
-              borderBottomColor:experience.iconBg,
-              boxShadow:'none'
-          }}
-            > 
-              <div>
-                <h3 className=" text-black text-xl font-poppins">
-                  {experience.title}
-                </h3>
-                <p className=" text-black-500 font-medium font-base" style={{margin:0}}>
-                  {experience.company_name}
-                </p>
-              </div>
-              <ul className=" my-5 list-disc ml-5 space-y-2">
-                {experience.points.map((point, index) => (
-                  <li key={`experience-point-${index}`} className="text-black-500/50 font-normal pl-1  text-sm">
-                    {point}
-                  </li>
-                ))}
-
-              </ul>
-            </VerticalTimelineElement>
-          )
-          )}
-        </VerticalTimeline>
-
-      </div>
+          <p>
+            A través de mi trayectoria, he aprendido a abrazar la diversidad de
+            proyectos y a disfrutar del proceso de aprendizaje constante que
+            implica la programación. A continuación, te invito a explorar mi
+            línea de tiempo, donde detallo las etapas clave de mi carrera hasta
+            el momento.
+          </p>
+        </div>
+        <div className=" mt-12 flex">
+          <VerticalTimeline>
+            {experiences.map((experience) => (
+              <VerticalTimelineElement
+                key={experience.company_name}
+                date={experience.date}
+                icon={
+                  <div className=" flex justify-center items-center w-full h-full">
+                    <img
+                      src={experience.icon}
+                      alt={experience.company_name}
+                      className=" w-[60%] h-[60%] object-contain"
+                    />
+                  </div>
+                }
+                iconStyle={{ background: experience.iconBg }}
+                contentStyle={{
+                  borderBottom: "8px",
+                  borderStyle: "solid",
+                  borderBottomColor: experience.iconBg,
+                  boxShadow: "none",
+                }}
+              >
+                <div>
+                  <h3 className=" text-black text-xl font-poppins">
+                    {experience.title}
+                  </h3>
+                  <p
+                    className=" text-black-500 font-medium font-base"
+                    style={{ margin: 0 }}
+                  >
+                    {experience.company_name}
+                  </p>
+                </div>
+                <ul className=" my-5 list-disc ml-5 space-y-2">
+                  {experience.points.map((point, index) => (
+                    <li
+                      key={`experience-point-${index}`}
+                      className="text-black-500/50 font-normal pl-1  text-sm"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </VerticalTimelineElement>
+            ))}
+          </VerticalTimeline>
+        </div>
       </div>
     </section>
   );
