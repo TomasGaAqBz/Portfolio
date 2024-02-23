@@ -27,8 +27,11 @@ import arrow from './arrow.svg'
 import contact from './contact.svg'
 import soundon from './soundon.png'
 import soundoff from './soundoff.png'
+import bam from './bam.svg'
+import freelancer from './freelancer.svg'
 
 export {
+    bam,
     css,
     express,
     git,
@@ -57,5 +60,6 @@ export {
     arrow,
     contact,
     soundon,
-    soundoff
+    soundoff,
+    freelancer
 }

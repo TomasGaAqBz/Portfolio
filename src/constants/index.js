@@ -1,5 +1,6 @@
 
 import {
+    bam,
     car,
     contact,
     css,
@@ -24,7 +25,8 @@ import {
     summiz,
     tailwindcss,
     threads,
-    typescript
+    typescript,
+    freelancer
 } from "../assets/icons";
 
 export const skills = [
@@ -92,57 +94,27 @@ export const skills = [
 
 export const experiences = [
     {
-        title: "React.js Developer",
-        company_name: "Starbucks",
-        icon: "",
-        iconBg: "#accbe1",
-        date: "March 2020 - April 2021",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "React Native Developer",
-        company_name: "Tesla",
-        icon: "",
-        iconBg: "#fbc3bc",
-        date: "Jan 2021 - Feb 2022",
-        points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
-    },
-    {
-        title: "Web Developer",
-        company_name: "Shopify",
-        icon: "",
+        title: "Instructor de Introduccion a la Programacion",
+        company_name: "Buenos Aires Multiplica",
+        icon: bam,
         iconBg: "#b7e4c7",
-        date: "Jan 2022 - Jan 2023",
+        date: "Febrero 2023 - Julio 2023",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Lideré lecciones prácticas y teóricas con el objetivo de fomentar un ambiente de aprendizaje interactivo y participativo. Mi responsabilidad incluyó la creación y administración de pruebas y proyectos, proporcionando una evaluación integral del progreso de los estudiantes. Comprometido con el crecimiento y desarrollo de cada estudiante, ofrecí retroalimentación detallada y constructiva para facilitar la mejora continua. En este rol, no solo compartí conocimientos técnicos, sino también contribuí al desarrollo de habilidades críticas para el éxito en el campo de la programación."
         ],
     },
     {
-        title: "Full stack Developer",
-        company_name: "Meta",
-        icon: "",
+        title: "Freelancer Developer",
+        company_name: "none",
+        icon: freelancer,
         iconBg: "#a2d2ff",
-        date: "Jan 2023 - Present",
+        date: "Octubre 2022 - Present",
         points: [
-            "Developing and maintaining web applications using React.js and other related technologies.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
+            "Me sumergí en diversas facetas del desarrollo web. Mi enfoque abarcó el mantenimiento de páginas web existentes, así como el desarrollo de proyectos propios innovadores. Colaboré estrechamente con clientes para comprender sus requisitos y brindar soluciones personalizadas que superaran sus expectativas. Durante este periodo, perfeccioné mis habilidades en la gestión efectiva del tiempo y recursos, garantizando entregas puntuales y resultados de calidad en cada proyecto. Este capítulo como freelancer no solo amplió mi experiencia técnica, sino que también consolidó mi capacidad para enfrentar desafíos con creatividad y adaptabilidad.",
         ],
     },
+
+
 ];
 
 export const socialLinks = [
