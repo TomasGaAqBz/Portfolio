@@ -68,7 +68,7 @@ const Contact = () => {
       {alert.show && <Alert{...alert}/> }
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
-        <h1 className='text-4xl font-bold'>Pongamonos en contacto</h1>
+        <h1 className='text-3xl font-bold'>Pongamonos en contacto</h1>
         
         <form
         className=' w-full flex flex-col gap-7 mt-14'
