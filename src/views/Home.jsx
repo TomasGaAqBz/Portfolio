@@ -77,8 +77,8 @@ const Home = () => {
           />
           <Boat
             isRotating={isRotating}
-            boatScale={boatScale}
-            boatPosition={boatPosition}
+            scale={boatScale}
+            position={boatPosition}
             rotation={[0.1, 4.7, 0]}
           />
           <Sky isRotating={isRotating}/>

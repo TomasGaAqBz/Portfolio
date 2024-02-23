@@ -54,13 +54,13 @@ const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     if (event.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
 
-      islandRef.current.rotation.z += 0.005 * Math.PI;
-      rotationSpeed.current = 0.007;
+      islandRef.current.rotation.z += 0.008 * Math.PI;
+      rotationSpeed.current = 0.0125;
     } else if (event.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
 
-      islandRef.current.rotation.z -= 0.005 * Math.PI;
-      rotationSpeed.current = -0.007;
+      islandRef.current.rotation.z -= 0.008 * Math.PI;
+      rotationSpeed.current = -0.0125;
     }
   };
 

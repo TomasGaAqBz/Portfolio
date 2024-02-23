@@ -29,6 +29,8 @@ import soundon from './soundon.png'
 import soundoff from './soundoff.png'
 import bam from './bam.svg'
 import freelancer from './freelancer.svg'
+import logoNB from './nancybarboza.png'
+import logoTis from './tis.png'
 
 export {
     bam,
@@ -61,5 +63,7 @@ export {
     contact,
     soundon,
     soundoff,
-    freelancer
+    freelancer,
+    logoNB,
+    logoTis
 }
